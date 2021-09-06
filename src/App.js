@@ -1,10 +1,24 @@
-import './App.css';
+import React from "react";
+import "./App.css";
+import Clock from "./components/clock/Clock";
+import Randog from "./components/randog/Randog";
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+export default class App extends React.Component {
+  state = {
+    showClock: true,
+  };
+
+  toggleClock = () => {
+    this.setState((old) => ({ showClock: !old.showClock }));
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Randog />
+        {/* <button onClick={this.toggleClock}>Toggle clock</button>
+        {this.state.showClock && <Clock />} */}
+      </div>
+    );
+  }
 }
-
-export default App;
